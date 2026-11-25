@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV - Ellioth Emmanuel Hernández Ramírez</title>
+  
+  <!-- Tailwind CSS para diseño moderno y responsivo -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fuente Inter de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              850: '#132238',
+              900: '#0f172a',
+              950: '#09111e',
+            },
+            tech: {
+              500: '#0284c7',
+              600: '#0369a1',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Estilos base y ajustes de impresión en tamaño carta */
+    @page {
+      size: letter;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    @media print {
+      body {
+        background-color: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .cv-sheet {
+        box-shadow: none !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        min-height: 11in !important;
+        border-radius: 0 !important;
+        display: flex !important;
+        flex-direction: row !important;
+      }
+
+      .cv-sidebar {
+        width: 34% !important;
+        background-color: #0f172a !important;
+        color: #f8fafc !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        padding: 1.5rem 1.25rem !important;
+      }
+
+      .cv-main {
+        width: 66% !important;
+        background-color: #ffffff !important;
+        padding: 1.5rem 1.75rem !important;
+      }
+
+      /* Evitar saltos de página indeseados dentro de bloques */
+      section, .cv-item {
+        break-inside: avoid;
+      }
+
+      /* Ajustes sutiles de escala para asegurar que quepa impecable en 1 hoja */
+      .print-compact-text {
+        font-size: 0.82rem !important;
+        line-height: 1.38 !important;
+      }
+
+      .print-compact-title {
+        font-size: 1.45rem !important;
+        line-height: 1.15 !important;
+      }
+
+      .print-section-gap {
+        margin-bottom: 1rem !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-200 text-slate-800 py-6 px-3 sm:py-10 sm:px-6">
+
+  <!-- Barra de acciones flotante (oculta al imprimir) -->
+  <div class="no-print fixed bottom-5 right-5 z-50 flex flex-wrap gap-2.5">
+    <button
+      onclick="copyGitHub()"
+      id="copyBtn"
+      class="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium px-4 py-3 rounded-xl shadow-lg transition-all active:scale-95 cursor-pointer border border-slate-700"
+      title="Copiar enlace de GitHub"
+    >
+      <svg class="w-4 h-4 text-sky-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+      </svg>
+      <span id="copyBtnText">Copiar GitHub</span>
+    </button>
+
+    <button
+      onclick="window.print()"
+      class="flex items-center gap-2 bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold px-5 py-3 rounded-xl shadow-lg shadow-sky-900/30 transition-all active:scale-95 cursor-pointer"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+      </svg>
+      <span>Imprimir / Guardar PDF</span>
+    </button>
+  </div>
+
+  <!-- Contenedor principal hoja Carta (8.5in x 11in) -->
+  <main class="cv-sheet max-w-[850px] mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-slate-300/80">
+    
+    <!-- COLUMNA IZQUIERDA (Barra lateral oscura) -->
+    <aside class="cv-sidebar w-full md:w-[35%] bg-slate-900 text-slate-100 p-6 sm:p-7 flex flex-col justify-between">
+      <div>
+        <!-- Fotografía de perfil circular -->
+        <div class="flex flex-col items-center text-center mb-6">
+          <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full p-1 bg-gradient-to-tr from-sky-500 via-cyan-400 to-slate-600 shadow-lg mb-4">
+            <img
+              src="image_90cd78.jpg"
+              alt="Foto de perfil de Ellioth Emmanuel Hernández Ramírez"
+              class="w-full h-full rounded-full object-cover object-top bg-slate-800 border-2 border-slate-900"
+              onerror="this.onerror=null; this.src='https://placehold.co/300x300/1e293b/38bdf8?text=EEHR';"
+            />
+          </div>
+          
+          <!-- Etiqueta de disponibilidad -->
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-sky-500/15 text-sky-300 border border-sky-400/30">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Disponible: Fines de semana / Proyecto
+          </span>
+        </div>
+
+        <!-- Sección: Contacto y Datos Generales -->
+        <div class="print-section-gap mb-6">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 border-b border-slate-700/80 pb-1.5 mb-3">
+            Contacto y Perfil
+          </h2>
+          <ul class="space-y-2.5 text-xs sm:text-[13px] text-slate-300 print-compact-text">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-sky-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+              <span>18 años</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-sky-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <span>Cortazar, Guanajuato, México</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-sky-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+              <a href="tel:+524111175524" class="hover:text-white transition-colors">+52 411 117 5524</a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-sky-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <a href="mailto:elliothernandezramirez@gmail.com" class="break-all hover:text-white transition-colors">
+                elliothernandezramirez@gmail.com
+              </a>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-sky-400 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+              </svg>
+              <a
+                href="https://github.com/elliothernandezramirez-design"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-sky-300 hover:text-sky-200 underline decoration-sky-500/50 underline-offset-2 break-all font-medium"
+              >
+                github.com/elliothernandezramirez-design
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sección: Habilidades Técnicas -->
+        <div class="print-section-gap mb-6">
+          <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 border-b border-slate-700/80 pb-1.5 mb-3">
+            Habilidades Técnicas
+          </h2>
+
+          <div class="space-y-3.5 text-xs print-compact-text">
+            <!-- Subgrupo: Programación y Control -->
+            <div>
+              <p class="font-semibold text-slate-200 mb-1.5">Programación y Control</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700 text-sky-300 font-medium">C++</span>
+                <span class="px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700 text-sky-300 font-medium">Python</span>
+                <span class="px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700 text-sky-300 font-medium">Arduino</span>
+                <span class="px-2 py-0.5 rounded-md bg-slate-800 border border-slate-700 text-sky-300 font-medium">GitHub (Repositorios)</span>
+              </div>
+            </div>
+
+            <!-- Subgrupo: Manufactura y Taller -->
+            <div>
+              <p class="font-semibold text-slate-200 mb-1.5">Manufactura y Taller</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded-md bg-slate-800/90 border border-slate-700/80 text-slate-300">Soldadura básica</span>
+                <span class="px-2 py-0.5 rounded-md bg-slate-800/90 border border-slate-700/80 text-slate-300">Mtto. electromecánico</span>
+                <span class="px-2 py-0.5 rounded-md bg-slate-800/90 border border-slate-700/80 text-slate-300">Herramienta eléctrica/manual</span>
+                <span class="px-2 py-0.5 rounded-md bg-slate-800/90 border border-slate-700/80 text-slate-300">Diagramas de bloques</span>
+                <span class="px-2 py-0.5 rounded-md bg-slate-800/90 border border-slate-700/80 text-slate-300">SOLIDWORKS básico</span>
+              </div>
+            </div>
+
+            <!-- Subgrupo: Software y Ofimática -->
+            <div>
+              <p class="font-semibold text-slate-200 mb-1.5">Software y Ofimática</p>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2 py-0.5 rounded-md bg-slate-800/90 border border-slate-700/80 text-slate-300">Excel (Básico-Intermedio)</span>
+                <span class="px-2 py-0.5 rounded-md bg-slate-800/90 border border-slate-700/80 text-slate-300">Word</span>
+                <span class="px-2 py-0.5 rounded-md bg-slate-800/90 border border-slate-700/80 text-slate-300">PowerPoint</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sección: Certificaciones e Idiomas -->
+        <div>
+          <h2 class="text-xs font-bold uppercase tracking-widest text-sky-400 border-b border-slate-700/80 pb-1.5 mb-3">
+            Certificaciones e Idiomas
+          </h2>
+          <ul class="space-y-2.5 text-xs text-slate-300 print-compact-text">
+            <li class="flex items-start gap-2">
+              <span class="text-sky-400 font-bold mt-0.5">✓</span>
+              <span><strong class="text-white font-semibold">Certificado de Educación Dual:</strong> 13 meses de formación práctica en industria.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-sky-400 font-bold mt-0.5">✓</span>
+              <span><strong class="text-white font-semibold">Título y Certificado Técnico en Mecatrónica:</strong> CBTis 172.</span>
+            </li>
+            <li class="pt-1.5 border-t border-slate-800">
+              <p class="font-semibold text-white mb-1">Idiomas</p>
+              <p class="text-slate-300">• <strong class="text-slate-100">Español:</strong> Nativo</p>
+              <p class="text-slate-300">• <strong class="text-slate-100">Inglés:</strong> Nivel 3 / Básico (comprensión de documentación técnica)</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pie discreto en barra lateral -->
+      <div class="mt-6 pt-3 border-t border-slate-800 text-[11px] text-slate-400">
+        <p><strong class="text-slate-300">Disponibilidad:</strong> Fines de semana o esquema flexible por proyecto.</p>
+      </div>
+    </aside>
+
+    <!-- COLUMNA DERECHA (Contenido principal claro) -->
+    <div class="cv-main w-full md:w-[65%] bg-white p-6 sm:p-8 flex flex-col justify-between">
+      <div>
+        <!-- Encabezado con Nombre y Título -->
+        <header class="border-b-2 border-slate-900 pb-4 mb-5">
+          <h1 class="print-compact-title text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 uppercase leading-tight">
+            Ellioth Emmanuel<br class="hidden sm:inline" /> Hernández Ramírez
+          </h1>
+          <p class="text-sm sm:text-base font-semibold text-sky-700 mt-1.5">
+            Estudiante de Ingeniería Mecatrónica &nbsp;|&nbsp; Técnico en Mecatrónica
+          </p>
+        </header>
+
+        <!-- Perfil Profesional -->
+        <section class="print-section-gap mb-5">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="w-1.5 h-5 bg-sky-600 rounded-full"></span>
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">
+              Perfil Profesional
+            </h2>
+          </div>
+          <p class="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed text-justify print-compact-text">
+            Estudiante de primer semestre de Ingeniería Mecatrónica y Técnico en Mecatrónica con experiencia práctica en entornos industriales bajo el modelo de Educación Dual (13 meses). Conocimientos en programación (<strong>C++</strong> y <strong>Python</strong>), automatización básica con microcontroladores (<strong>Arduino</strong>), metrología dimensional y mantenimiento preventivo industrial. Enfocado en aportar disciplina operativa y capacidad de aprendizaje continuo en proyectos de desarrollo y programación.
+          </p>
+        </section>
+
+        <!-- Experiencia Práctica e Industrial -->
+        <section class="print-section-gap mb-5">
+          <div class="flex items-center gap-2 mb-2.5">
+            <span class="w-1.5 h-5 bg-sky-600 rounded-full"></span>
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">
+              Experiencia Práctica e Industrial
+            </h2>
+          </div>
+
+          <div class="cv-item bg-slate-50/80 border border-slate-200/80 rounded-xl p-3.5 sm:p-4">
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+              <h3 class="text-sm font-bold text-slate-900">
+                Practicante Técnico — Programa de Educación Dual
+              </h3>
+              <span class="inline-block text-xs font-semibold text-sky-700 bg-sky-50 border border-sky-200 px-2.5 py-0.5 rounded-full shrink-0">
+                Duración: 13 meses
+              </span>
+            </div>
+            <p class="text-xs font-medium text-slate-500 mb-2">
+              Sector Industrial — Guanajuato, México
+            </p>
+            <ul class="list-disc list-outside ml-4 space-y-1.5 text-xs sm:text-[13px] text-slate-700 leading-snug print-compact-text">
+              <li>
+                Ejecución de rutinas de mantenimiento preventivo en maquinaria industrial (limpieza técnica, inspección de motores trifásicos y lubricación de rodamientos).
+              </li>
+              <li>
+                Reparación de componentes mecánicos y sustitución de cableado eléctrico dañado por temperatura.
+              </li>
+              <li>
+                Colaboración directa con técnicos especializados siguiendo protocolos de seguridad industrial y normativas de calidad.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Educación -->
+        <section class="print-section-gap mb-5">
+          <div class="flex items-center gap-2 mb-2.5">
+            <span class="w-1.5 h-5 bg-sky-600 rounded-full"></span>
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">
+              Educación
+            </h2>
+          </div>
+
+          <div class="space-y-3.5">
+            <!-- Educación Superior -->
+            <div class="cv-item relative pl-3.5 border-l-2 border-sky-600">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5">
+                <h3 class="text-sm font-bold text-slate-900">Ingeniería Mecatrónica</h3>
+                <span class="text-xs font-semibold text-slate-500">Agosto 2026 – Presente</span>
+              </div>
+              <p class="text-xs font-semibold text-sky-700">
+                Instituto Tecnológico de Celaya (TecNM Campus Celaya) — Celaya, Guanajuato
+              </p>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed print-compact-text">
+                <strong class="text-slate-800">Materias relevantes:</strong> Fundamentos de Programación (C++ y Python), Metrología, Cálculo Diferencial, Química General y Fundamentos de Investigación.
+              </p>
+            </div>
+
+            <!-- Educación Media Superior Técnica -->
+            <div class="cv-item relative pl-3.5 border-l-2 border-slate-300">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-0.5">
+                <h3 class="text-sm font-bold text-slate-900">Técnico en Mecatrónica (Título y Certificado)</h3>
+                <span class="text-xs font-semibold text-slate-500">Finalizado en Junio 2026</span>
+              </div>
+              <p class="text-xs font-semibold text-slate-700">
+                CBTis 172 — Cortazar, Guanajuato
+              </p>
+              <p class="text-xs text-slate-600 mt-1 leading-relaxed print-compact-text">
+                Egresado bajo el programa de <strong class="text-slate-800">Formación Dual</strong>, combinando estudios teóricos con práctica profesional intensiva en la industria.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Proyectos Académicos -->
+        <section>
+          <div class="flex items-center gap-2 mb-2.5">
+            <span class="w-1.5 h-5 bg-sky-600 rounded-full"></span>
+            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900">
+              Proyectos Académicos
+            </h2>
+          </div>
+
+          <div class="grid grid-cols-1 gap-2.5">
+            <!-- Proyecto 1 -->
+            <div class="cv-item border border-slate-200 rounded-xl p-3 hover:border-sky-300 transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h3 class="text-xs sm:text-[13.5px] font-bold text-slate-900">
+                  Prototipo de Sistema de Riego Automatizado
+                </h3>
+                <span class="text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">2026</span>
+              </div>
+              <p class="text-xs text-slate-700 leading-relaxed print-compact-text">
+                Desarrollo de sistema de control automatizado utilizando <strong>Arduino Uno R3</strong>, sensor capacitivo de humedad de suelo y módulo relevador para monitoreo y riego eficiente, con análisis comparativo de viabilidad técnica y operativa.
+              </p>
+            </div>
+
+            <!-- Proyecto 2 -->
+            <div class="cv-item border border-slate-200 rounded-xl p-3 hover:border-sky-300 transition-colors">
+              <div class="flex items-center justify-between gap-2 mb-1">
+                <h3 class="text-xs sm:text-[13.5px] font-bold text-slate-900">
+                  Prácticas de Metrología y Control Dimensional
+                </h3>
+                <span class="text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded">2026</span>
+              </div>
+              <p class="text-xs text-slate-700 leading-relaxed print-compact-text">
+                Medición de precisión de piezas mecánicas utilizando calibrador Vernier y micrómetro, evaluando tolerancias y errores de calibración.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Pie de página con enlace directo a repositorio -->
+      <footer class="mt-5 pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-1 text-[11px] text-slate-500">
+        <span>Portafolio y código fuente en GitHub:</span>
+        <a
+          href="https://github.com/elliothernandezramirez-design"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="font-semibold text-sky-700 hover:underline"
+        >
+          https://github.com/elliothernandezramirez-design
+        </a>
+      </footer>
+    </div>
+
+  </main>
+
+  <!-- Notificación tipo Toast para confirmación de copiado -->
+  <div
+    id="toast"
+    class="no-print fixed bottom-20 right-5 bg-slate-900 text-white text-xs font-medium px-4 py-2.5 rounded-lg shadow-xl border border-slate-700 opacity-0 pointer-events-none transition-opacity duration-300"
+  >
+    Enlace de GitHub copiado al portapapeles
+  </div>
+
+  <script>
+    // Función compatible con iframes para copiar el enlace de GitHub
+    function copyGitHub() {
+      const githubUrl = "https://github.com/elliothernandezramirez-design";
+      const tempInput = document.createElement("textarea");
+      tempInput.value = githubUrl;
+      tempInput.style.position = "fixed";
+      tempInput.style.opacity = "0";
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      
+      try {
+        document.execCommand("copy");
+        const toast = document.getElementById("toast");
+        const btnText = document.getElementById("copyBtnText");
+        toast.classList.remove("opacity-0");
+        btnText.textContent = "¡Copiado!";
+        
+        setTimeout(() => {
+          toast.classList.add("opacity-0");
+          btnText.textContent = "Copiar GitHub";
+        }, 2200);
+      } catch (err) {
+        console.error("No se pudo copiar el enlace:", err);
+      } finally {
+        document.body.removeChild(tempInput);
+      }
+    }
+  </script>
+</body>
+</html>
